@@ -2,11 +2,11 @@
 ## QuickDesk
 QuickDesk is a simple and efficient help desk solution designed to streamline support operations in any organization. Its goal is to make it easy for users to raise tickets, for agents to manage them, and for administrators to oversee the entire support process—without unnecessary complexity.
 
-Project Purpose
+## Project Purpose
 QuickDesk provides an intuitive platform for employees or customers to create support tickets when they encounter issues or need assistance. The system ensures smooth communication, timely resolution, and accountability throughout the ticket lifecycle.
 
-User Roles and Permissions
-End Users (Employees/Customers):
+## User Roles and Permissions
+# End Users (Employees/Customers):
 
 Register and log in to their own accounts.
 
