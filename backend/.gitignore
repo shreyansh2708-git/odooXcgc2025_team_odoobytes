@@ -1,0 +1,84 @@
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+main
+quickdesk-backend
+
+# Go test files
+*.test
+*.out
+
+# Go coverage files
+*.cover
+*.prof
+
+# Go mod cache
+go.sum
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build outputs
+dist/
+build/
+tmp/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Upload directories
+uploads/
+temp/
+
+# Go workspace file
+go.work
+
+# Frontend build files
+frontend/build/
+frontend/dist/
+frontend/.next/
+
+# Package manager files
+frontend/package-lock.json
+frontend/yarn.lock
+
+# Test coverage
+coverage/
+*.coverage
+
+# Temporary files
+*.tmp
+*.temp
