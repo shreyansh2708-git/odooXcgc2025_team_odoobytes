@@ -35,21 +35,21 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
-      const response = await apiService.login({ email, password }) as AuthResponse;
-      
-      const userData = {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
 };
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(false); // Changed to false to see login page immediately
+  const [isLoading, setIsLoading] = useState(false);
 
   const login = async (email: string, password: string): Promise<void> => {
     try {
       setIsLoading(true);
-      const response = await apiService.login({ email, password });
+      const response = await apiService.login({ email, password }) as AuthResponse;
       
-      const userData = {
+      const userData: User = {
         id: response.user.id,
         email: response.user.email,
         name: response.user.name,
@@ -59,9 +59,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       };
       
       setUser(userData);
-      const response = await apiService.register({ email, password, name, role }) as AuthResponse;
-      
-      const userData = {
+      localStorage.setItem('quickdesk_token', response.token);
+    } catch (error) {
+      console.error('Login error:', error);
       throw new Error(error instanceof Error ? error.message : 'Login failed');
     } finally {
       setIsLoading(false);
@@ -71,9 +71,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const register = async (email: string, password: string, name: string, role: 'user' | 'agent' = 'user'): Promise<void> => {
     try {
       setIsLoading(true);
-      const response = await apiService.register({ email, password, name, role });
+      const response = await apiService.register({ email, password, name, role }) as AuthResponse;
       
-      const userData = {
+      const userData: User = {
         id: response.user.id,
         email: response.user.email,
         name: response.user.name,
