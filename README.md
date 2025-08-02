@@ -1,7 +1,7 @@
 # odooXcgc2025_team_odoobytes
 # QuickDesk
 
-Deployed link- 
+Deployed link- https://frontend-rho-ashy-71.vercel.app/
 
 QuickDesk is a modern, intuitive help desk solution designed to streamline ticket management and improve support efficiency within any organization. It allows users to raise support tickets, agents to manage and resolve them, and admins to oversee platform operations—ensuring clear communication and fast, accountable resolution of issues.
 
