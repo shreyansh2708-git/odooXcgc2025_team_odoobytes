@@ -41,12 +41,12 @@ func main() {
 
 	// Configure CORS
 	r.Use(cors.Handler(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"}, // Frontend URL
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
-		ExposedHeaders:   []string{"Link"},
-		AllowCredentials: true,
-		MaxAge:           300,
+    AllowedOrigins:   []string{"http://localhost:5173", "http://localhost:3000"},
+    AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+    AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type", "X-CSRF-Token"},
+    ExposedHeaders:   []string{"Link"},
+    AllowCredentials: true,
+    MaxAge:           300,
 	}))
 
 	// Initialize controllers
@@ -77,16 +77,23 @@ func main() {
 			})
 
 			// Ticket routes
+			// ...existing code...
+
+// Ticket routes
 			r.Route("/tickets", func(r chi.Router) {
-				r.Get("/", ticketController.GetTickets)
-				r.Post("/", ticketController.CreateTicket)
-				r.Get("/{id}", ticketController.GetTicket)
-				r.Put("/{id}", ticketController.UpdateTicket)
-				r.Delete("/{id}", ticketController.DeleteTicket)
-				r.Post("/{id}/comments", ticketController.AddComment)
-				r.Post("/{id}/vote", ticketController.VoteTicket)
-				r.Post("/{id}/assign", ticketController.AssignTicket)
+				r.Get("/", ticketController.GetTickets)              // List all tickets
+				r.Post("/", ticketController.CreateTicket)           // Create a new ticket
+				r.Route("/{id}", func(r chi.Router) {
+        			r.Get("/", ticketController.GetTicket)           // Get a specific ticket
+        			r.Put("/", ticketController.UpdateTicket)        // Update a specific ticket
+        			r.Delete("/", ticketController.DeleteTicket)     // Delete a specific ticket
+        			r.Post("/comments", ticketController.AddComment) // Add comment to a ticket
+        			r.Post("/vote", ticketController.VoteTicket)     // Vote on a ticket
+        			r.Post("/assign", ticketController.AssignTicket) // Assign a ticket
+    			})
 			})
+
+// ...existing code...
 
 			// Category routes (admin only)
 			r.Route("/categories", func(r chi.Router) {

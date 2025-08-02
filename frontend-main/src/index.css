@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* QuickDesk Purple Theme - Fixed HSL Values */
+    --background: 250 15% 99%;
+    --foreground: 260 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 260 20% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 20% 15%;
+
+    /* Beautiful Purple Primary Colors */
+    --primary: 260 85% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 90% 75%;
+    --primary-light: 275 95% 85%;
+    --primary-dark: 250 80% 55%;
+
+    /* NO YELLOW - Purple/Blue Status Colors */
+    --status-open: 220 85% 65%;
+    --status-in-progress: 280 70% 65%;
+    --status-resolved: 145 60% 55%;
+    --status-closed: 210 20% 65%;
+
+    /* Purple Priority Colors (NO Yellow/Orange) */
+    --priority-low: 145 60% 55%;
+    --priority-medium: 260 65% 65%;
+    --priority-high: 300 75% 65%;
+    --priority-urgent: 320 85% 65%;
+
+    --secondary: 260 25% 96%;
+    --secondary-foreground: 260 15% 25%;
+
+    --muted: 260 20% 97%;
+    --muted-foreground: 260 15% 45%;
+
+    --accent: 270 100% 95%;
+    --accent-foreground: 260 85% 65%;
+
+    --destructive: 350 85% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 260 25% 90%;
+    --input: 260 20% 95%;
+    --ring: 260 85% 65%;
+
+    --radius: 1rem;
+
+    /* Stunning Purple Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(260, 85%, 65%), hsl(270, 90%, 75%));
+    --gradient-secondary: linear-gradient(145deg, hsl(275, 95%, 85%), hsl(260, 85%, 65%));
+    --gradient-status: linear-gradient(90deg, hsl(220, 85%, 65%), hsl(145, 60%, 55%));
+    --gradient-card: linear-gradient(145deg, hsl(260, 50%, 98%), hsl(270, 40%, 96%));
+    --gradient-hero: linear-gradient(135deg, hsl(260, 85%, 65%) 0%, hsl(280, 70%, 65%) 50%, hsl(220, 85%, 65%) 100%);
+    --gradient-glow: linear-gradient(45deg, hsl(260, 85%, 65%), hsl(280, 90%, 75%), hsl(300, 75%, 65%));
+
+    /* Professional Shadows */
+    --shadow-elegant: 0 25px 50px -12px hsl(260 85% 65% / 0.25);
+    --shadow-card: 0 10px 35px -5px hsl(260 50% 30% / 0.12);
+    --shadow-glow: 0 0 60px hsl(260 85% 65% / 0.3);
+    --shadow-subtle: 0 4px 20px -2px hsl(260 30% 50% / 0.08);
+
+    /* Smooth Premium Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 260 25% 98%;
+    --sidebar-foreground: 260 20% 25%;
+    --sidebar-primary: 260 85% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 260 30% 94%;
+    --sidebar-accent-foreground: 260 20% 25%;
+    --sidebar-border: 260 25% 88%;
+    --sidebar-ring: 260 85% 65%;
+  }
+
+  .dark {
+    /* Dark mode purple theme */
+    --background: 260 20% 8%;
+    --foreground: 260 10% 95%;
+
+    --card: 260 25% 12%;
+    --card-foreground: 260 10% 95%;
+
+    --popover: 260 25% 12%;
+    --popover-foreground: 260 10% 95%;
+
+    --secondary: 260 30% 20%;
+    --secondary-foreground: 260 10% 95%;
+
+    --muted: 260 25% 15%;
+    --muted-foreground: 260 10% 70%;
+
+    --accent: 260 30% 20%;
+    --accent-foreground: 260 85% 65%;
+
+    --border: 260 25% 25%;
+    --input: 260 25% 18%;
+    --ring: 260 85% 65%;
+
+    --sidebar-background: 260 25% 10%;
+    --sidebar-foreground: 260 10% 90%;
+    --sidebar-accent: 260 30% 15%;
+    --sidebar-accent-foreground: 260 10% 90%;
+    --sidebar-border: 260 25% 20%;
+    --sidebar-ring: 260 85% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
